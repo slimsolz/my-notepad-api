@@ -1,0 +1,17 @@
+{
+  "name": "my-notepad-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Odumah Solomon",
+  "license": "MIT",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "mongodb": "^3.6.10",
+    "mongoose": "^5.13.2",
+    "morgan": "^1.10.0"
+  }
+}
