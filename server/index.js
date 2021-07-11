@@ -1,6 +1,9 @@
 import express from "express";
 import logger from "morgan";
 import mongoose from "mongoose";
+import cors from 'cors';
+import swaggerUi from "swagger-ui-express";
+import YAML from "yamljs";
 import index from "./routes";
 import { dbURL } from "./config/db.config";
 
@@ -28,6 +31,9 @@ mongoose
     process.exit();
   });
 
+const swaggerDocument = YAML.load(`${process.cwd()}/server/swagger.yaml`);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

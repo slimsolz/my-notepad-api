@@ -15,7 +15,6 @@ A simple api that helps you manage and pen down your thoughts
 ## Getting Started
 
 - Install NodeJS and yarn on your computer
-- download`
 - Use the .env.sample file to setup your environmental variables and rename the file to .env
 - Run `npm install` or `yarn install` to install all dependencies
 - Run `npm run start-dev` or `yarn start-dev` to start the server locally
@@ -25,18 +24,17 @@ A simple api that helps you manage and pen down your thoughts
 
 ## Testing
 
+- Open your `.env` ensure to add `NODE_ENV=test` so the test will be run using the test database
 - run `npm test` or `yarn test`, This will run test with code coverage
 
 ## Documentation
 
-- Find app documentation at `/api-docs`
+- Find app documentation at `localhost:[PORT]/api-docs`
 
 ## Technologies
 
 - Node Js
 - Express JS
-- Body-Parser
-- Coveralls
 - Babel
 - Mocha & Chai
 - Chai

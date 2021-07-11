@@ -20,7 +20,9 @@
     "joi": "^17.4.0",
     "mongodb": "^3.6.10",
     "mongoose": "^5.13.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "swagger-ui-express": "^4.1.6",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

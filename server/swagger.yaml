@@ -1,0 +1,183 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: My-Notepad-api
+  description: API for MyNotepad
+  # My Contact Info
+  contact:
+    email: odumahs@gmail.com
+basePath: /api/v1
+
+# tags are used for organizing operations
+tags:
+- name: notes
+  description: Operation for notes
+
+paths:
+  /notes:
+    post:
+      tags:
+        - notes
+      summary:  Create new note
+      produces:
+      - application/json
+      parameters:
+      - name: content
+        in: formData
+        description: content of the note
+        type: string
+        required: true
+      responses:
+        201:
+          description: Note saved successfully
+          examples:
+            application/json:
+              status: success
+              message: note saved successfully
+              note:
+                id: 60e991ab184ccd45058ab822
+                content: content goes here
+        409:
+          description: Duplicate Note
+          examples:
+            application/json:
+              status: error
+              message: note already exists
+        442:
+            description: Validation failed
+            examples:
+              application/json:
+                status: error
+                message: content is required
+
+    get:
+      tags:
+        - notes
+      summary: Get all notes
+      produces:
+      - application/json
+      responses:
+        200:
+          description: A list of all notes
+          examples:
+            application/json:
+              status: success
+              message: notes retrieved successfully
+              data:
+                - id: 60e991ab184ccd45058ab82a
+                  content: such a wonderful world
+                - id: 60e991ab184ccd45058a4r3e
+                  content: a lil bit of the world
+
+    delete:
+      tags:
+        - notes
+      summary: Deletes all notes
+      produces:
+      - application/json
+      responses:
+        204:
+          description: Removes existing notes in the database
+          examples:
+            application/json:
+              status: success
+
+  /notes/{id}:
+    get:
+      tags:
+        - notes
+      summary: Get a single note
+      produces:
+      - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: the id for the note
+          type: string
+      responses:
+        200:
+          description: Returns just one note
+          examples:
+            application/json:
+              status: success
+              note:
+                - id: 60e991ab184ccd45058ab854
+                  content: such a wonderful world
+        404:
+          description: Not found
+          examples:
+            application/json:
+              status: error
+              message: note not found
+        442:
+          description: Validation failed
+          examples:
+            application/json:
+              status: error
+              message: id is required
+
+    patch:
+      tags:
+        - notes
+      summary: Update a specific note
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: the id for the note
+        type: string
+      - name: content
+        in: formData
+        description: content of the note
+        type: string
+        required: true
+      responses:
+        200:
+          description: Note updated successfully
+          examples:
+            application/json:
+              status: success
+              message: note updated successfully
+              note:
+                id: 60e991ab184ccd45058ab822
+                content: content goes here
+        442:
+            description: Validation failed
+            examples:
+              application/json:
+                status: error
+                message: content is required
+        404:
+          description: Not found
+          examples:
+            application/json:
+              status: error
+              message: note not found
+
+    delete:
+      tags:
+        - notes
+      summary: Deletes a single note
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: the id for the note
+        type: string
+      responses:
+        204:
+          description: Removes just one existing note
+          examples:
+            application/json:
+              status: success
+        404:
+          description: Not found
+          examples:
+            application/json:
+              status: error
+              message: note not found
