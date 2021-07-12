@@ -2,9 +2,11 @@
   "name": "my-notepad-api",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Odumah Solomon",
+  "author": "solomon <odumahs@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "heroku-postbuild": "npm run build",
+    "start": "node server/dist/index.js",
     "clean": "rm -rf server/dist/ && mkdir server/dist/",
     "build": "yarn clean && babel server -d server/dist --ignore server/dist",
     "start-dev": "nodemon server/index.js --exec babel-node",

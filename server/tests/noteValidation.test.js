@@ -19,9 +19,7 @@ describe("validate Parameter", () => {
       .end((err, res) => {
         expect(res).to.have.status(422);
         expect(res.body.status).to.be.equal("error");
-        expect(res.body.message).to.equal(
-          '"content" is not allowed to be empty'
-        );
+        expect(res.body.message).to.equal("content is required");
         expect(res.body.data).to.equal(null);
         done();
       });

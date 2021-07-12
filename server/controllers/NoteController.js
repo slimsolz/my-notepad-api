@@ -18,7 +18,7 @@ class NoteController {
   static async getAllNotes(req, res, next) {
     try {
       const { perPage, page } = req.query;
-      const limit = parseInt(perPage, 10) || 2;
+      const limit = parseInt(perPage, 10) || 5;
       const currentPage = parseInt(page, 10) || 1;
       const count = await Note.countDocuments();
       const notes = await Note.find()
@@ -28,10 +28,12 @@ class NoteController {
 
       return successResponse(res, 200, "notes retrieved successfully", {
         notes,
-        perPage: limit,
-        page: currentPage,
-        totalPages: Math.ceil(count / limit),
-        totalCount: count,
+        pageDetails: {
+          perPage: limit,
+          page: currentPage,
+          totalPages: Math.ceil(count / limit),
+          totalCount: count,
+        },
       });
     } catch (error) {
       next(error);

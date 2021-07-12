@@ -12,7 +12,7 @@ export const createNoteValidator = (req, res, next) => {
   });
   if (error) {
     const { details } = error;
-    return errorResponse(res, 422, details[0].message, null);
+    return errorResponse(res, 422, "content is required", null);
   }
 
   return next();
