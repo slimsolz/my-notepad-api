@@ -27,9 +27,13 @@ A simple api that helps you manage and pen down your thoughts
 - Open your `.env` ensure to add `NODE_ENV=test` so the test will be run using the test database
 - run `npm test` or `yarn test`, This will run test with code coverage
 
+## Using the Live App
+
+- The live application is hosted at `https://my-notepad-api.herokuapp.com/api/v1/` (note: don't for get to include `/api/v1/` when a request to an endpoint)
+
 ## Documentation
 
-- Find app documentation at `localhost:[PORT]/api-docs`
+- Find app documentation at `https://my-notepad-api.herokuapp.com/api-docs`
 
 ## Technologies
 
